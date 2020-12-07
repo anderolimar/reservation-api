@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const port = parseInt(process.env.APP_PORT || '3000');
+const port = parseInt(process.env.APP_PORT || '3001');
 
 class Server {
   init(app){

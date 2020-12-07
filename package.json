@@ -7,7 +7,7 @@
     "test": "mocha test/**/*-test.js",
     "coverage": "nyc --include='app/**/*.js' --reporter=text mocha test/**/*-test.js",
     "start": "node index.js",
-    "start-local": "nodemon node index.js"
+    "local": "docker-compose up"
   },
   "keywords": [
     "API",
