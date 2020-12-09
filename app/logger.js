@@ -1,6 +1,6 @@
 const bunyan = require('bunyan')
 const logger = bunyan.createLogger({
-  name: 'cms-api',
+  name: 'reservation-api',
   streams: [
     {
       level: 'info',

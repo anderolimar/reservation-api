@@ -1,12 +1,12 @@
 const Routes = require('./routes');
 
 class App {
-  start(router){
+  init(router){
     Routes.loadRoutes(router)
   }
 
-  init(setup){
-    this.resources = setup.start()
+  setup(setup){
+    this.resources = setup.resources()
   }
 }
 

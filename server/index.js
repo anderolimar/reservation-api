@@ -8,7 +8,7 @@ class Server {
     this.router = express.Router()
     this.router.use(bodyParser.json())
     
-    app.start(this.router)
+    app.init(this.router)
     this.handler.use(this.router)
   }
   

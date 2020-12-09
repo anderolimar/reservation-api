@@ -1,13 +1,13 @@
 const app = require('./app')
-const setup = require('./app/setup')
+const Setup = require('./app/setup')
 const server = require('./server')
+const dbConfig = require('../knexfile.js')
 
-app.init(setup)
+app.setup(new Setup({dbConfig}))
 
 server.init(app)
 
 server.start()
-
 
 
 // const express = require('express')

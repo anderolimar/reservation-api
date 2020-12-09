@@ -1,5 +1,9 @@
 class Setup {
-  static start(){ }
+  constructor({ dbConfig }) {
+    this.dbConfig = dbConfig
+  }
+  
+  resources(){ }
 }
 
 module.exports = Setup;
