@@ -4,13 +4,13 @@ const logger = bunyan.createLogger({
   streams: [
     {
       level: 'info',
-      stream: process.stdout            
+      stream: process.stdout
     },
     {
-        level: 'error',
-        stream: process.stdout
+      level: 'error',
+      stream: process.stdout
     }
   ]
-});
+})
 
 module.exports = logger

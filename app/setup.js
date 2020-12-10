@@ -1,9 +1,9 @@
 class Setup {
-  constructor({ dbConfig }) {
+  constructor ({ dbConfig }) {
     this.dbConfig = dbConfig
   }
-  
-  resources(){ }
+
+  resources () { }
 }
 
-module.exports = Setup;
+module.exports = Setup

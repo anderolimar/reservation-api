@@ -1,11 +1,11 @@
-const Routes = require('./routes');
+const Routes = require('./routes')
 
 class App {
-  init(router){
+  init (router) {
     Routes.loadRoutes(router)
   }
 
-  setup(setup){
+  setup (setup) {
     this.resources = setup.resources()
   }
 }
