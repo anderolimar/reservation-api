@@ -4,7 +4,7 @@
   "description": "Reservation Api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*-test.js",
+    "test": "mocha tests/**/*.spec.js",
     "coverage": "nyc --include='app/**/*.js' --reporter=text mocha test/**/*-test.js",
     "start": "node index.js",
     "local": "docker-compose up"
@@ -28,5 +28,16 @@
     "express": "4.17.1",
     "knex": "^0.21.12",
     "pg": "^8.5.1"
-  }
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "before",
+      "after",
+      "beforeEach",
+      "afterEach",
+      "it",
+      "assert"
+    ]
+  }  
 }
