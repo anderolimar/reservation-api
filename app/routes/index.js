@@ -8,7 +8,7 @@ class Routes {
     router.use(resourcesMiddleware(resources))
 
     // Routes
-    router.get('/admin', (req, res) => res.json({ message: 'Restricted Area !!!' }))
+    router.get('/admin/clients', controllers.admin.clients)
     router.get('/', controllers.home)
 
     // Handlers
