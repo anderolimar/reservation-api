@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/**/*.spec.js",
-    "coverage": "nyc --include='app/**/*.js' --reporter=text mocha test/**/*-test.js",
-    "start": "node index.js",
-    "local": "docker-compose up"
+    "coverage": "nyc --reporter=html --include='app/**/*.js' --exclude='app/models/**/*.js' --reporter=text mocha tests/**/*.spec.js",
+    "start": "nodemon node index.js",
+    "local": "docker-compose up -d & npm run migrate & npm run seed",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
+    "init": "pm2-runtime index.js",
+    "init-test": "npm run migrate & npm run seed & npm run init"
   },
   "keywords": [
     "API",

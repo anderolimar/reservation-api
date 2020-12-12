@@ -1,9 +1,8 @@
-// Update with your config settings.
-
 module.exports = {
   development: {
     client: 'postgresql',
     connection: {
+      host: (process.env.DB_HOST || 'localhost'),
       database: 'app',
       user: 'app',
       password: '12345'
@@ -14,6 +13,9 @@ module.exports = {
     },
     migrations: {
       tableName: 'knex_migrations'
-    }
+    },
+    seeds: {
+      directory: './seeds'
+    }    
   }
 }

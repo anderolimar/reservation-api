@@ -1,23 +1,5 @@
 version: "3.8"
 services:
-  nginx:
-    container_name: nginx
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile 
-    environment:
-      - ADMIN_USER=admin
-      - ADMIN_PASS=54321
-    ports:
-      - "3000:3000"      
-    depends_on:
-      - reservation      
-  reservation:
-    build: .
-    ports:
-      - "3001:3001"
-    depends_on:
-      - db      
   db:
     image: postgres
     environment:
@@ -25,3 +7,23 @@ services:
       - POSTGRES_PASSWORD=12345
     ports:
       - "5432:5432"
+  reservation:
+    build: .
+    environment: 
+      - DB_HOST=db
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db      
+  nginx:
+    container_name: nginx
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    environment:
+      - ADMIN_USER=admin
+      - ADMIN_PASS=54321
+    ports:
+      - "3000:3000"      
+    depends_on:
+      - reservation      
