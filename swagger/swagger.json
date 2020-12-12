@@ -1,0 +1,139 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the resevation API",
+    "version": "0.1.0",
+    "title": "Reservation API",
+    "contact": {
+      "email": "anderolimar@gmail.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Admin",
+      "description": "Admin routes"
+    },
+    {
+      "name": "Reservation",
+      "description": "Reservation routes"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/admin/clients": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Get clients list.",
+        "description": "",
+        "operationId": "getClients",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter clients list by name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Filter clients list by active",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Max number of clients in list.",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of results to offset.",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ClientsResponse"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServeErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "definitions": {
+    "Client": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "apiKey": {
+          "type": "string"
+        }
+      }
+    },
+    "ClientsResponse": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "clients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Client"
+          }
+        }
+      }
+    },
+    "InternalServeErrorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

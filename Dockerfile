@@ -14,6 +14,7 @@ COPY knexfile.js ./
 COPY index.js ./
 COPY app ./app/
 COPY server ./server/
+COPY swagger ./swagger/
 
 RUN npm install pm2 -g
 

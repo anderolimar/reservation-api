@@ -2,6 +2,8 @@
 
 Api para registro de reservas em geral. 
 
+*Por se tratar de um projeto simples, algumas configurações também são simples ao que se refere a segurança. Sendo que em um ambiente real de produção, deveria-se optar por soluções mais robustas quanto a segurança.* 
+
 ## Requisitos 
 
 Versões minimas :
@@ -20,15 +22,19 @@ Para banco de dados, será utilizado o **Postgres**
 
 A bilbioteca para acesso ao banco é o [**Knex**](https://npmjs.org/package/knex).
 
-## Iniciar localmente
+As configurações do banco de dados ficam no arquivo *knexfile.js*
 
-### Estrutura
+* *em um ambinte de produção as configurações do banco de dados deveria vir de um local mais seguro.*
+
+## Iniciar API localmente
+
+### Docker Compose
 Para rodar localmente, é utilizado o docker-compose que iniciará a seguinte estrutura : 
 - db: Banco de dados Postgres
 - nginx: Api Gateway para aplicação
 - reservation: API de reservas
 
-O comando abaixo irá rodar o docker-compose : 
+O comando abaixo irá rodar o docker-compose, além de rodar as migrations e seed: 
 
 ```
 $ npm run local
@@ -38,13 +44,13 @@ $ npm run local
 A aplicação estará disponivel em [http://localhost:3000](http://localhost:3000)
 
 ### Acesso Admin
-Para teste local, foi adicionado o nginx para adicionar uma camada de autenticação simples nas rotas /admin com as seguintes credenciais : 
+Para teste local, foi adicionado o nginx para adicionar uma camada de autenticação simples nas rotas */admin* com as seguintes credenciais : 
 
 > user: admin
 
 > password: 54321
 
-*Em um ambiente de produção, deverá utilizar uma forma de autenticação mais robusta*
+* *Em um ambiente de produção, deveria-se utilizar uma forma de autenticação mais robusta. (Ex: JWT, Oauth)*
 
 ## Testes
 
@@ -57,3 +63,8 @@ $ npm test
 ```
 
 ## Documentação
+
+Documentação da API em swagger [http://localhost:3000/docs](http://localhost:3000/docs).
+* *necessário que a api estaja rodando [localmente](#iniciar-localmente)* 
+
+
