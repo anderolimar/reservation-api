@@ -1,6 +1,5 @@
 const BaseBusiness = require('./base-business')
 const ClientsResponse = require('../models/responses/clients-response')
-const { Client } = require('knex')
 
 class ClientsBusiness extends BaseBusiness {
     /**

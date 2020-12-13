@@ -15,7 +15,7 @@ class ClientsRepository extends BaseRepository {
     * @param {boolean} args.active
     * @returns { total }
     */    
-    async getTotalClients({ name, active }) {
+    async getTotalClients({ name, active } = {}) {
         try {
             const query = this.queryBuilder
             .count(`${ClientsIdColumn} as total`)
@@ -42,7 +42,7 @@ class ClientsRepository extends BaseRepository {
     * @param {int} args.limit
     * @param {int} args.offset
     */    
-    async getClients({ name, active, limit, offset }) {
+    async getClients({ name, active, limit = 10, offset = 0 } = {}) {
         try {
             const query = this.queryBuilder
             .select([
