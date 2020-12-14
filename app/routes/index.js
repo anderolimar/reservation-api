@@ -7,8 +7,17 @@ class Routes {
     // Middleware
     router.use(resourcesMiddleware(resources))
 
-    // Routes
+    // Product Routes
+    router.post('/clients/:clientId/products', controllers.product.createProduct)
+
+
+    // Admin Routes
     router.get('/admin/clients', controllers.admin.clients)
+    router.post('/admin/clients', controllers.admin.createClient)
+    
+
+
+    // Home Route
     router.get('/', controllers.home)
 
     // Handlers

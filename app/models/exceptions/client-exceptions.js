@@ -6,4 +6,13 @@ class ClientNotFoundException extends ApiException {
     }
 }
 
-module.exports = ClientNotFoundException
+class UnauthorizedException extends ApiException {
+    constructor() {
+        super(401, 'UNAUTHORIZED_ERROR', 'Unauthorized access')
+    }
+}
+
+module.exports = {
+    ClientNotFoundException,
+    UnauthorizedException
+}
