@@ -6,6 +6,14 @@
 
 Api para registro de reservas em geral. 
 
+Essa aplicação tem como finalidade o registro de reservar de qualquer natureza, suportando multiplos clientes e produtos de reserva.
+
+Para cada cliente é gerado uma APIKEY, ao qual é necessária para qualquer interação com a aplicação.
+
+As reservas podem ser registradas com data de finalização e status atual da reserva.
+
+Também é possível registrar um histórico referente as interação da reserva.
+
 *Por se tratar de um projeto simples, algumas configurações também são simples ao que se refere a segurança. Sendo que em um ambiente real de produção, deveria-se optar por soluções mais robustas quanto a segurança.* 
 
 <h3 align="center"> 
@@ -41,6 +49,7 @@ As definições de projeto estão [aqui](./PROJECT.md) :
 - [ ] Cadastro de reserva
 - [ ] Edição de reserva
 - [ ] Listagem de reserva
+- [ ] Histórico de reserva
 
 <br>
 
