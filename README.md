@@ -20,6 +20,7 @@ Api para registro de reservas em geral.
 - [Iniciar API localmente](#iniciar-api-localmente)
 - [Testes](#testes)
 - [Documentação](#documentação)
+- [Issues](#issues)
 - [Autor](#autor)
 
 <br>
