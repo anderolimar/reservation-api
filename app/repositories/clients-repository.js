@@ -1,5 +1,6 @@
 const BaseRepository = require('./base-repository')
 const Client = require('../models/database/client')
+const DataBaseException = require('../models/exceptions/database-exception')
 
 const ClientsTable = 'CLIENTS'
 const ClientsIdColumn = 'ID'
@@ -30,7 +31,7 @@ class ClientsRepository extends BaseRepository {
         }
         catch(err) {
             this.logger.error(err)
-            throw err
+            throw new DataBaseException('getTotalClients')
         }
     }
 
@@ -41,6 +42,7 @@ class ClientsRepository extends BaseRepository {
     * @param {boolean} args.active
     * @param {int} args.limit
     * @param {int} args.offset
+    * @returns {[Client]}
     */    
     async getClients({ name, active, limit = 10, offset = 0 } = {}) {
         try {
@@ -64,9 +66,63 @@ class ClientsRepository extends BaseRepository {
         }
         catch(err) {
             this.logger.error(err)
-            throw err            
+            throw new DataBaseException('getClients')
         }
     }
+
+    /**
+    * @method getClient
+    * @param {object} args
+    * @param {string} args.id
+    */    
+   async getClient({ id }) {
+        try {
+            const query = this.queryBuilder
+            .first([
+                `${ClientsIdColumn} as id`,
+                `${ClientsNameColumn} as name`,
+                `${ClientsActiveColumn} as active`,
+                `${ClientsApiKeyColumn} as apiKey`
+            ])
+            .from(ClientsTable)
+            .where(ClientsIdColumn, id)
+
+            const result = await this.dbClient.execute(query)
+            return new Client(result)
+        }
+        catch(err) {
+            this.logger.error(err)
+            throw new DataBaseException('getClient')
+        }
+    }
+
+    /**
+    * @method insertClient
+    * @param {object} args
+    * @param {string} args.name
+    * @param {boolean} args.active
+    * @param {string} args.apiKey
+    * @param {int}
+    */    
+   async insertClient({ name, active, apiKey } = {}) {
+        try {
+            const query = this.queryBuilder
+            .insert({
+                [`${ClientsNameColumn}`]: name,
+                [`${ClientsActiveColumn}`]: active,
+                [`${ClientsApiKeyColumn}`]:apiKey
+            })
+            .into(ClientsTable)
+            .returning(ClientsIdColumn)
+
+            const result = await this.dbClient.execute(query)
+            return result[0]
+        }
+        catch(err) {
+            this.logger.error(err)
+            throw new DataBaseException('insertClient')
+        }
+    }    
 }
 
 module.exports = ClientsRepository

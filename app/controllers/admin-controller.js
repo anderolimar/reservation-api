@@ -1,4 +1,4 @@
-const { ClientsParams } = require('./params/admin-params')
+const { ClientsParams, NewClientParams } = require('./params/admin-params')
 const ClientsBusiness = require('../business/clients-business')
 
 class AdminController {
@@ -15,6 +15,20 @@ class AdminController {
 
         res.json(result)
     }
+
+    /**
+    * @method createClient
+    * @param  {import('express').Request} req
+    * @param  {import('express').Response} res
+    */    
+    async createClient (req, res) {
+        const { clientsRepository, logger } = req.resources
+        const clientsBusiness = new ClientsBusiness(clientsRepository, logger)
+        const params = new NewClientParams(req.body)
+        const result = await clientsBusiness.newClient(params)
+
+        res.json(result)
+    }    
 }
 
 module.exports = new AdminController()

@@ -5,11 +5,11 @@ const Client = require('../../../app/models/database/client')
 
 
 const loggerMock = {
-    error: (_err) => {}
+    error: (err) => { console.error(err) }
 }
 
 describe('ClientsRepository', () => {
-    describe('ClientsRepository.getTotalClients', () => {
+    describe('getTotalClients', () => {
         it('Shoud call ClientBusiness.getTotalClients with "name" filter', async () => {
             const expectedQuery = 'select count("ID") as "total" from "CLIENTS" where "NAME" like \'%test%\''
 
@@ -60,7 +60,7 @@ describe('ClientsRepository', () => {
 
     })
 
-    describe('ClientsRepository.getClients', () => {
+    describe('getClients', () => {
         it('Shoud call ClientBusiness.getClients without filter', async () => {
             const expectedQuery = 'select "ID" as "id", "NAME" as "name", "ACTIVE" as "active", "API_KEY" as "apiKey" from "CLIENTS" limit 10'
 
@@ -156,5 +156,52 @@ describe('ClientsRepository', () => {
             should(result).be.deepEqual(expectedResult)
         })        
 
-    })    
+    })  
+    
+    describe('insertClient', () => {
+        it('Shoud call ClientBusiness.insertClient success', async () => {
+            const expectedQuery = 'insert into "CLIENTS" ("ACTIVE", "API_KEY", "NAME") values (true, \'HGJJJGJ\', \'test\') returning "ID"'
+
+            const dbResult = [ 1 ]
+
+            const execFunc = async (query, _trans) => {
+                const querySql = query.toString()
+                should(querySql).be.equal(expectedQuery)
+                return dbResult
+            }
+
+            const dbClient = dbClientMock(execFunc)
+
+            const clientsRepository = new ClientsRepository(dbClient, loggerMock)
+            const result = await clientsRepository.insertClient({ 
+                name: 'test', active: true, apiKey: 'HGJJJGJ' 
+            })
+            should(result).be.equal(dbResult[0])
+        })
+
+    })      
+
+    describe('getClient', () => {
+        it('Shoud call ClientBusiness.getClient success', async () => {
+            const expectedQuery = 'select "ID" as "id", "NAME" as "name", "ACTIVE" as "active", "API_KEY" as "apiKey" from "CLIENTS" where "ID" = 1 limit 1'
+
+            const dbResult = { id: 1, name: 'test', active: false, apiKey: 'FJKDJFS' }
+            const expectedResult = new Client(dbResult)
+
+            const execFunc = async (query, _trans) => {
+                const querySql = query.toString()
+                should(querySql).be.equal(expectedQuery)
+                return dbResult
+            }
+
+            const dbClient = dbClientMock(execFunc)
+
+            const clientsRepository = new ClientsRepository(dbClient, loggerMock)
+            const result = await clientsRepository.getClient({ id: 1 })
+            should(result instanceof Client).be.true()
+            should(result).be.deepEqual(expectedResult)
+
+        })
+
+    })     
 })

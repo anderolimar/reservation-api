@@ -4,9 +4,9 @@ const SetupMock = require('./setup-mock')
 const dbClientMock = require('./dbclient-mock')
 
 module.exports = {
-    getServerMock: (repository, dbResultFunc) => {
+    getServerMock: (repositories, dbResultFunc) => {
         const dbClient = dbClientMock(dbResultFunc)
-        const setup = new SetupMock(repository, dbClient)
+        const setup = new SetupMock(repositories, dbClient)
         const server = new ServerMock()
 
         app.setup(setup)

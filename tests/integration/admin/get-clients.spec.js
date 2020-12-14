@@ -4,8 +4,8 @@ const mock = require('../../mocks')
 
 describe("GET /admin/clients", function()
 {
-  it('should return space success.', async function() {
-    const repository = { name: 'clientsRepository', type: ClientsRepository }
+  it('should return clients response.', async function() {
+    const repositories = [{ name: 'clientsRepository', type: ClientsRepository }]
     
     const expectedResult = {
       total: 2,
@@ -22,7 +22,7 @@ describe("GET /admin/clients", function()
       ]
     }
 
-    const server = mock.getServerMock(repository, dbResultFunc)
+    const server = mock.getServerMock(repositories, dbResultFunc)
 
     await request(server.handler)
       .get('/admin/clients')
@@ -33,6 +33,10 @@ describe("GET /admin/clients", function()
         should(response.body).have.property('total');
         should(response.body).have.property('clients');
         should(response.body).be.deepEqual(expectedResult);
+      })
+      .catch(err => {
+        console.error(err)
+        should.fail(err, 'NOT ERROR')
       })
     })
 })    
