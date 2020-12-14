@@ -10,7 +10,7 @@
     "init": "pm2-runtime index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "nginx": "docker-compose build & docker-compose up -d & npm run migrate & npm run seed",
+    "server": "docker-compose build & docker-compose up -d & npm run migrate & npm run seed",
     "local": "docker-compose up -d db & npm run migrate & npm run seed & npm run start"
   },
   "keywords": [
