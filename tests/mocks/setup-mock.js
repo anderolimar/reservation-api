@@ -13,7 +13,7 @@ class SetupMock {
   resources () {
     const resourcesObj = { logger }
     this.repositories.forEach(repository => {
-      resourcesObj[`${repository.name}`] = new repository.type(this.dbClient, logger)
+      resourcesObj[`${repository.name}`] = new repository.Type(this.dbClient, logger)
     })
     return resourcesObj
   }

@@ -99,12 +99,15 @@ describe('AdminController', () => {
         }
       }
 
-      try {
-        await AdminController.createClient(req, res)
-        should.fail('', expectedResult, 'Should throw error')
-      } catch (err) {
-        should(err).equal(expectedResult)
+      let result = null
+
+      const nextResult = function(error) {
+        result = error
       }
+
+      await AdminController.createClient(req, res, nextResult)
+      should(result).equal(expectedResult)
+
     })
   })
 })

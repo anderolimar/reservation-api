@@ -4,7 +4,7 @@ const mock = require('../../mocks')
 
 describe('POST /admin/clients', function () {
   it('should return success.', async function () {
-    const repositories = [{ name: 'clientsRepository', type: ClientsRepository }]
+    const repositories = [{ name: 'clientsRepository', Type: ClientsRepository }]
 
     const expectedResult = { id: 1, name: 'Fulano', active: false, apiKey: 'HDSHDJSH' }
 

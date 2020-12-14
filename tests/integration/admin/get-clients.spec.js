@@ -4,7 +4,7 @@ const mock = require('../../mocks')
 
 describe('GET /admin/clients', function () {
   it('should return clients response.', async function () {
-    const repositories = [{ name: 'clientsRepository', type: ClientsRepository }]
+    const repositories = [{ name: 'clientsRepository', Type: ClientsRepository }]
 
     const expectedResult = {
       total: 2,
