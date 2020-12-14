@@ -14,7 +14,7 @@ Api para registro de reservas em geral.
 
 ## Conteúdo 
 
-- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Definições do Projeto](#definições-do-projeto)
 - [Features](#requisitos)
 - [Requisitos](#requisitos)
 - [Banco de dados](#banco-de-dados)
@@ -26,20 +26,9 @@ Api para registro de reservas em geral.
 
 <br>
 
-## Estrutura do Projeto
+## Definições do Projeto
 
-O projeto está estuturado da seguinte forma : 
-
-|  Pasta | Descrição                                                                |
-|--------|--------------------------------------------------------------------------|
-|  /app  | Esta pasta contém todo o código referente a aplicação        |                             
-|  /docs | Esta pasta contém arquivos de documentação |    
-|  /migrations | Esta pasta contém scripts para gerar estrutura do banco de dados |    
-|  /nginx | Esta pasta contém arquivos para gerar imagem docker no Nginx localmente |  
-|  /seed | Esta pasta contém scripts para gerar dados de teste |  
-|  /server | Esta pasta contém código referente ao servidor |  
-|  /swagger | Esta pasta contém arquivos de documentação no formato swagger |  
-|  /teste | Esta pasta contém arquivos de testes |  
+As definições de projeto estão [aqui](./PROJECT.md) : 
 
 <br>
 
