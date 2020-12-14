@@ -870,6 +870,20 @@ margin-bottom: 20px;
     }
   }
 };
+        defs["ReservationsResponse"] = {
+  "type" : "object",
+  "properties" : {
+    "total" : {
+      "type" : "integer"
+    },
+    "reservations" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Reservation"
+      }
+    }
+  }
+};
   </script>
 
   <div class="container-fluid">
@@ -904,11 +918,14 @@ margin-bottom: 20px;
                     <li data-group="Reservations" data-name="getReservation" class="">
                       <a href="#api-Reservations-getReservation">getReservation</a>
                     </li>
+                    <li data-group="Reservations" data-name="getReservations" class="">
+                      <a href="#api-Reservations-getReservations">getReservations</a>
+                    </li>
                     <li data-group="Reservations" data-name="postReservation" class="">
                       <a href="#api-Reservations-postReservation">postReservation</a>
                     </li>
-                    <li data-group="Reservations" data-name="puReservation" class="">
-                      <a href="#api-Reservations-puReservation">puReservation</a>
+                    <li data-group="Reservations" data-name="putReservation" class="">
+                      <a href="#api-Reservations-putReservation">putReservation</a>
                     </li>
           </ul>
         </nav>
@@ -3164,6 +3181,416 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Reservations-getReservations">
+                      <article id="api-Reservations-getReservations-0" data-group="User" data-name="getReservations" data-version="0">
+                        <div class="pull-left">
+                          <h1>getReservations</h1>
+                          <p>Get reservations list.</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/clients/{clientId}/reservations</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Reservations-getReservations-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Reservations-getReservations-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Reservations-getReservations-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Reservations-getReservations-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Reservations-getReservations-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Reservations-getReservations-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Reservations-getReservations-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "api-key: [[apiKey]]" "http://localhost/clients/{clientId}/reservations"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Reservations-getReservations-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ReservationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ReservationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure API key authorization: api_key
+        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+        api_key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //api_key.setApiKeyPrefix("Token");
+
+        ReservationsApi apiInstance = new ReservationsApi();
+        String apiKey = apiKey_example; // String | 
+        Integer clientId = 56; // Integer | 
+        try {
+            ReservationsResponse result = apiInstance.getReservations(apiKey, clientId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReservationsApi#getReservations");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Reservations-getReservations-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReservationsApi;
+
+public class ReservationsApiExample {
+
+    public static void main(String[] args) {
+        ReservationsApi apiInstance = new ReservationsApi();
+        String apiKey = apiKey_example; // String | 
+        Integer clientId = 56; // Integer | 
+        try {
+            ReservationsResponse result = apiInstance.getReservations(apiKey, clientId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReservationsApi#getReservations");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Reservations-getReservations-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+// Configure API key authorization: (authentication scheme: api_key)
+[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"api-key"];
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"api-key"];
+
+String *apiKey = apiKey_example; //  (default to FA2536ADF67348FE)
+Integer *clientId = 56; // 
+
+ReservationsApi *apiInstance = [[ReservationsApi alloc] init];
+
+// Get reservations list.
+[apiInstance getReservationsWith:apiKey
+    clientId:clientId
+              completionHandler: ^(ReservationsResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ReservationApi = require('reservation_api');
+var defaultClient = ReservationApi.ApiClient.instance;
+
+// Configure API key authorization: api_key
+var api_key = defaultClient.authentications['api_key'];
+api_key.apiKey = "YOUR API KEY"
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//api_key.apiKeyPrefix['api-key'] = "Token"
+
+var api = new ReservationApi.ReservationsApi()
+
+var apiKey = apiKey_example; // {String} 
+
+var clientId = 56; // {Integer} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getReservations(apiKey, clientId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Reservations-getReservations-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getReservationsExample
+    {
+        public void main()
+        {
+            
+            // Configure API key authorization: api_key
+            Configuration.Default.ApiKey.Add("api-key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("api-key", "Bearer");
+
+            var apiInstance = new ReservationsApi();
+            var apiKey = apiKey_example;  // String |  (default to FA2536ADF67348FE)
+            var clientId = 56;  // Integer | 
+
+            try
+            {
+                // Get reservations list.
+                ReservationsResponse result = apiInstance.getReservations(apiKey, clientId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReservationsApi.getReservations: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api-key', 'Bearer');
+
+$api_instance = new Swagger\Client\Api\ReservationsApi();
+$apiKey = apiKey_example; // String | 
+$clientId = 56; // Integer | 
+
+try {
+    $result = $api_instance->getReservations($apiKey, $clientId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReservationsApi->getReservations: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ReservationsApi;
+
+# Configure API key authorization: api_key
+$WWW::SwaggerClient::Configuration::api_key->{'api-key'} = 'YOUR_API_KEY';
+# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$WWW::SwaggerClient::Configuration::api_key_prefix->{'api-key'} = "Bearer";
+
+my $api_instance = WWW::SwaggerClient::ReservationsApi->new();
+my $apiKey = apiKey_example; # String | 
+my $clientId = 56; # Integer | 
+
+eval { 
+    my $result = $api_instance->getReservations(apiKey => $apiKey, clientId => $clientId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ReservationsApi->getReservations: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Reservations-getReservations-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+swagger_client.configuration.api_key['api-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# swagger_client.configuration.api_key_prefix['api-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = swagger_client.ReservationsApi()
+apiKey = apiKey_example # String |  (default to FA2536ADF67348FE)
+clientId = 56 # Integer | 
+
+try: 
+    # Get reservations list.
+    api_response = api_instance.get_reservations(apiKey, clientId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReservationsApi->getReservations: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">clientId*</td>
+<td>
+
+
+    <div id="d2e199_getReservations_clientId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                            <div class="methodsubtabletitle">Header parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                  <tr><td style="width:150px;">api_key*</td>
+<td>
+
+
+    <div id="d2e199_getReservations_apiKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - successful operation </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getReservations-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getReservations-200-schema">
+                                  <div id='responses-getReservations-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "successful operation",
+  "schema" : {
+    "$ref" : "#/definitions/ReservationsResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getReservations-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getReservations-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getReservations-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - Any Error </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getReservations-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getReservations-default-schema">
+                                  <div id='responses-getReservations-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Any Error",
+  "schema" : {
+    "$ref" : "#/definitions/ErrorResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getReservations-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getReservations-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getReservations-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Reservations-postReservation">
                       <article id="api-Reservations-postReservation-0" data-group="User" data-name="postReservation" data-version="0">
                         <div class="pull-left">
@@ -3626,10 +4053,10 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Reservations-puReservation">
-                      <article id="api-Reservations-puReservation-0" data-group="User" data-name="puReservation" data-version="0">
+                    <div id="api-Reservations-putReservation">
+                      <article id="api-Reservations-putReservation-0" data-group="User" data-name="putReservation" data-version="0">
                         <div class="pull-left">
-                          <h1>puReservation</h1>
+                          <h1>putReservation</h1>
                           <p>Update reservation.</p>
                         </div>
                         <div class="pull-right"></div>
@@ -3643,24 +4070,24 @@ $(document).ready(function() {
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Reservations-puReservation-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Reservations-puReservation-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Reservations-puReservation-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Reservations-puReservation-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Reservations-puReservation-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Reservations-puReservation-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Reservations-putReservation-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Reservations-putReservation-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Reservations-putReservation-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Reservations-putReservation-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Reservations-putReservation-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Reservations-putReservation-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Reservations-puReservation-0-curl">
+                          <div class="tab-pane active" id="examples-Reservations-putReservation-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT -H "api-key: [[apiKey]]" "http://localhost/clients/{clientId}/reservations/{id}"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Reservations-puReservation-0-java">
+                          <div class="tab-pane" id="examples-Reservations-putReservation-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -3686,17 +4113,17 @@ public class ReservationsApiExample {
         Integer id = 56; // Integer | 
         ReservationUpdateRequest reservation = ; // ReservationUpdateRequest | Reservation data.
         try {
-            Reservation result = apiInstance.puReservation(apiKey, clientId, id, reservation);
+            Reservation result = apiInstance.putReservation(apiKey, clientId, id, reservation);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ReservationsApi#puReservation");
+            System.err.println("Exception when calling ReservationsApi#putReservation");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Reservations-puReservation-0-android">
+                          <div class="tab-pane" id="examples-Reservations-putReservation-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReservationsApi;
 
 public class ReservationsApiExample {
@@ -3708,20 +4135,20 @@ public class ReservationsApiExample {
         Integer id = 56; // Integer | 
         ReservationUpdateRequest reservation = ; // ReservationUpdateRequest | Reservation data.
         try {
-            Reservation result = apiInstance.puReservation(apiKey, clientId, id, reservation);
+            Reservation result = apiInstance.putReservation(apiKey, clientId, id, reservation);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ReservationsApi#puReservation");
+            System.err.println("Exception when calling ReservationsApi#putReservation");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Reservations-puReservation-0-groovy">
+  <div class="tab-pane" id="examples-Reservations-putReservation-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-objc">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 
 // Configure API key authorization: (authentication scheme: api_key)
@@ -3737,7 +4164,7 @@ ReservationUpdateRequest *reservation = ; // Reservation data.
 ReservationsApi *apiInstance = [[ReservationsApi alloc] init];
 
 // Update reservation.
-[apiInstance puReservationWith:apiKey
+[apiInstance putReservationWith:apiKey
     clientId:clientId
     id:id
     reservation:reservation
@@ -3752,7 +4179,7 @@ ReservationsApi *apiInstance = [[ReservationsApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-javascript">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ReservationApi = require('reservation_api');
 var defaultClient = ReservationApi.ApiClient.instance;
 
@@ -3780,14 +4207,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.puReservation(apiKey, clientId, id, reservation, callback);
+api.putReservation(apiKey, clientId, id, reservation, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Reservations-puReservation-0-angular">
+                            <!--<div class="tab-pane" id="examples-Reservations-putReservation-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-csharp">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -3796,7 +4223,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class puReservationExample
+    public class putReservationExample
     {
         public void main()
         {
@@ -3815,12 +4242,12 @@ namespace Example
             try
             {
                 // Update reservation.
-                Reservation result = apiInstance.puReservation(apiKey, clientId, id, reservation);
+                Reservation result = apiInstance.putReservation(apiKey, clientId, id, reservation);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ReservationsApi.puReservation: " + e.Message );
+                Debug.Print("Exception when calling ReservationsApi.putReservation: " + e.Message );
             }
         }
     }
@@ -3828,7 +4255,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-php">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -3844,15 +4271,15 @@ $id = 56; // Integer |
 $reservation = ; // ReservationUpdateRequest | Reservation data.
 
 try {
-    $result = $api_instance->puReservation($apiKey, $clientId, $id, $reservation);
+    $result = $api_instance->putReservation($apiKey, $clientId, $id, $reservation);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReservationsApi->puReservation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReservationsApi->putReservation: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-perl">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::ReservationsApi;
@@ -3869,15 +4296,15 @@ my $id = 56; # Integer |
 my $reservation = WWW::SwaggerClient::Object::ReservationUpdateRequest->new(); # ReservationUpdateRequest | Reservation data.
 
 eval { 
-    my $result = $api_instance->puReservation(apiKey => $apiKey, clientId => $clientId, id => $id, reservation => $reservation);
+    my $result = $api_instance->putReservation(apiKey => $apiKey, clientId => $clientId, id => $id, reservation => $reservation);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling ReservationsApi->puReservation: $@\n";
+    warn "Exception when calling ReservationsApi->putReservation: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Reservations-puReservation-0-python">
+                            <div class="tab-pane" id="examples-Reservations-putReservation-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -3898,10 +4325,10 @@ reservation =  # ReservationUpdateRequest | Reservation data.
 
 try: 
     # Update reservation.
-    api_response = api_instance.pu_reservation(apiKey, clientId, id, reservation)
+    api_response = api_instance.put_reservation(apiKey, clientId, id, reservation)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ReservationsApi->puReservation: %s\n" % e)</code></pre>
+    print("Exception when calling ReservationsApi->putReservation: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -3917,7 +4344,7 @@ except ApiException as e:
 <td>
 
 
-    <div id="d2e199_puReservation_clientId">
+    <div id="d2e199_putReservation_clientId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -3937,7 +4364,7 @@ except ApiException as e:
 <td>
 
 
-    <div id="d2e199_puReservation_id">
+    <div id="d2e199_putReservation_id">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -3965,7 +4392,7 @@ except ApiException as e:
 <td>
 
 
-    <div id="d2e199_puReservation_apiKey">
+    <div id="d2e199_putReservation_apiKey">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -4015,12 +4442,12 @@ $(document).ready(function() {
   }
 
   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_puReservation_reservation');
+  var result = $('#d2e199_putReservation_reservation');
   result.empty();
   result.append(view.render());
 });
 </script>
-<div id="d2e199_puReservation_reservation"></div>
+<div id="d2e199_putReservation_reservation"></div>
 </td>
 </tr>
 
@@ -4033,14 +4460,14 @@ $(document).ready(function() {
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-puReservation-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-putReservation-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-puReservation-200-schema">
-                                  <div id='responses-puReservation-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-putReservation-200-schema">
+                                  <div id='responses-putReservation-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -4061,14 +4488,14 @@ $(document).ready(function() {
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-puReservation-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-puReservation-200-schema-200');
+                                        $('#responses-putReservation-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-putReservation-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-puReservation-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-putReservation-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -4076,14 +4503,14 @@ $(document).ready(function() {
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-puReservation-default-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-putReservation-default-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-puReservation-default-schema">
-                                  <div id='responses-puReservation-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-putReservation-default-schema">
+                                  <div id='responses-putReservation-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -4104,14 +4531,14 @@ $(document).ready(function() {
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-puReservation-default-schema-data').val(stringify(schema));
-                                        var result = $('#responses-puReservation-default-schema-default');
+                                        $('#responses-putReservation-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-putReservation-default-schema-default');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-puReservation-default-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-putReservation-default-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 

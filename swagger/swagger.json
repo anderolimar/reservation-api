@@ -263,6 +263,55 @@
       }
     },
     "/clients/{clientId}/reservations": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Get reservations list.",
+        "description": "",
+        "operationId": "getReservations",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ReservationsResponse"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
       "post": {
         "tags": [
           "Reservations"
@@ -384,7 +433,7 @@
         ],
         "summary": "Update reservation.",
         "description": "",
-        "operationId": "puReservation",
+        "operationId": "putReservation",
         "consumes": [
           "application/json"
         ],
@@ -565,6 +614,20 @@
         "finish": {
           "type": "string",
           "format": "date-time"
+        }
+      }
+    },
+    "ReservationsResponse": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reservation"
+          }
         }
       }
     },

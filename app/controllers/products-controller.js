@@ -1,5 +1,6 @@
 const { NewProductParams } = require('./params/product-params')
 const ProductsBusiness = require('../business/products-business')
+const NotImplementedException = require('../models/exceptions/not-implemented-exception')
 
 class ProductsController {
     /**
@@ -14,7 +15,16 @@ class ProductsController {
         const result = await productsBusiness.newProduct(params)
 
         res.json(result)
-    }    
+    }
+
+    /**
+    * @method updateProduct
+    * @param  {import('express').Request} req
+    * @param  {import('express').Response} res
+    */    
+   async updateProduct (req, res) {
+        throw new NotImplementedException()
+    }     
 }
 
 module.exports = new ProductsController()

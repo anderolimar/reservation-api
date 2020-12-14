@@ -30,6 +30,7 @@ Api para registro de reservas em geral.
 - [x] Cadastro de cliente
 - [x] Listagem de cliente
 - [x] Cadastro de produto
+- [ ] Edição de produto
 - [ ] Cadastro de reserva
 - [ ] Edição de reserva
 - [ ] Listagem de reserva
