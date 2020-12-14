@@ -8,7 +8,6 @@
       "email": "anderolimar@gmail.com"
     }
   },
-  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
@@ -16,7 +15,11 @@
       "description": "Admin routes"
     },
     {
-      "name": "Reservation",
+      "name": "Products",
+      "description": "Product routes"
+    },
+    {
+      "name": "Reservations",
       "description": "Reservation routes"
     }
   ],
@@ -75,10 +78,54 @@
               "$ref": "#/definitions/ClientsResponse"
             }
           },
-          "500": {
-            "description": "Internal Server Error",
+          "default": {
+            "description": "Any Error",
             "schema": {
-              "$ref": "#/definitions/InternalServeErrorResponse"
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "summary": "Create new client.",
+        "description": "",
+        "operationId": "postClients",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "client",
+            "description": "Client data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ClientRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
             }
           }
         },
@@ -88,11 +135,323 @@
           }
         ]
       }
+    },
+    "/clients/{clientId}/products": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create new product.",
+        "description": "",
+        "operationId": "postProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "body",
+            "name": "product",
+            "description": "Product data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/clients/{clientId}/products/{id}": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create new product.",
+        "description": "",
+        "operationId": "putProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "product",
+            "description": "Product data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/clients/{clientId}/reservations": {
+      "post": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Create new reservation.",
+        "description": "",
+        "operationId": "postReservation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "body",
+            "name": "reservation",
+            "description": "Reservation data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReservationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/clients/{clientId}/reservations/{id}": {
+      "get": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Get reservation.",
+        "description": "",
+        "operationId": "getReservation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ReservationDetails"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Reservations"
+        ],
+        "summary": "Update reservation.",
+        "description": "",
+        "operationId": "puReservation",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "FA2536ADF67348FE"
+          },
+          {
+            "in": "path",
+            "name": "clientId",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "reservation",
+            "description": "Reservation data.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReservationUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Reservation"
+            }
+          },
+          "default": {
+            "description": "Any Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
     }
   },
   "securityDefinitions": {
     "basicAuth": {
       "type": "basic"
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api-key",
+      "in": "header"
     }
   },
   "definitions": {
@@ -127,7 +486,162 @@
         }
       }
     },
-    "InternalServeErrorResponse": {
+    "ClientRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "clientId": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        }
+      }
+    },
+    "Reservation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "productId": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "FINISHED",
+            "CANCELED_BY_OWNER",
+            "CANCELED_BY_CLIENT"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "register": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finish": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReservationRequest": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "FINISHED",
+            "CANCELED_BY_OWNER",
+            "CANCELED_BY_CLIENT"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "finish": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReservationUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "FINISHED",
+            "CANCELED_BY_OWNER",
+            "CANCELED_BY_CLIENT"
+          ]
+        },
+        "finish": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ReservationDetails": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "product": {
+          "$ref": "#/definitions/Product"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "FINISHED",
+            "CANCELED_BY_OWNER",
+            "CANCELED_BY_CLIENT"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "register": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finish": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ErrorResponse": {
       "type": "object",
       "properties": {
         "code": {

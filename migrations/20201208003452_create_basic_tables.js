@@ -6,6 +6,7 @@ exports.up = function (knex) {
       table.string('NAME', 500).notNullable()
       table.boolean('ACTIVE').default(false)
       table.string('API_KEY', 50).notNullable()
+      table.unique('API_KEY')
     })
     .createTable('RESERVATION_PRODUCTS', function (table) {
       table.increments('ID')

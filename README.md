@@ -64,6 +64,11 @@ $ npm test
 
 ## Documentação
 
+### Documentação online
+
+Documentação online da Reservation API [aqui](https://anderolimar.github.io/docs/)
+
+### Documentação swagger para teste
 Documentação da API em swagger [http://localhost:3000/docs](http://localhost:3000/docs).
 * *necessário que a api estaja rodando [localmente](#iniciar-localmente)* 
 
