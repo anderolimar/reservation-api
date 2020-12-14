@@ -2,7 +2,7 @@
 
 # Reservation API
 
-<center><img src="./docs/logo.png" style="width:100px" /></center>
+<center><img src="./docs/logo.png" /></center>
 
 Api para registro de reservas em geral. 
 
@@ -13,7 +13,7 @@ Api para registro de reservas em geral.
 </h3>
 
 ## Conteúdo 
----
+
 - [Features](#requisitos)
 - [Requisitos](#requisitos)
 - [Banco de dados](#banco-de-dados)
@@ -26,7 +26,7 @@ Api para registro de reservas em geral.
 
 
 ## Features
----
+
 - [x] Cadastro de cliente
 - [x] Listagem de cliente
 - [x] Cadastro de produto
@@ -37,7 +37,7 @@ Api para registro de reservas em geral.
 <br>
 
 ## Requisitos 
----
+
 Deve ter instalado em um computador as versões minimas abaixo:
 
 > Node Js 12 
@@ -51,7 +51,7 @@ Deve ter instalado em um computador as versões minimas abaixo:
 <br>
 
 ## Banco de dados
----
+
 Para banco de dados, será utilizado o **Postgres** 
 
 A bilbioteca para acesso ao banco é o [**Knex**](https://npmjs.org/package/knex).
@@ -63,7 +63,7 @@ As configurações do banco de dados ficam no arquivo *knexfile.js*
 <br>
 
 ## Iniciar API localmente
----
+
 ### Como um servidor local
 Para rodar como um servidor local, é utilizado o docker-compose que irá criar as imagens docker e iniciará a seguinte estrutura : 
 
@@ -104,7 +104,7 @@ $ npm run local
 <br>
 
 ## Testes
----
+
 Testes rodam utilizando a biblioteca [Mocha](https://www.npmjs.com/package/mocha).
 
 ### Estrutura
@@ -129,7 +129,7 @@ $ npm run coverage
 <br>
 
 ## Documentação
----
+
 ### Documentação online
 
 Documentação online da Reservation API [aqui](https://anderolimar.github.io/docs/)
@@ -140,7 +140,7 @@ Documentação da API em swagger [http://localhost:3000/docs](http://localhost:3
 
 
 ## Autor
----
+
 
 <br>
 
