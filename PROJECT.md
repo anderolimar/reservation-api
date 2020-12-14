@@ -61,3 +61,12 @@ A opção por utilizar ela foi devido a facilidade para criar queries condiciona
 sistema de migrations e configuração de credencais.
 	
 	
+## **Testes** 
+
+Para os testes é utilizado a biblioteca *Mocha*, *Proxiquire* e *Supertest*, sendo essas, bastante utilizada para projetos em Node.js
+
+
+## **Documentação API** 
+
+Para documentação da API é utilizado o Swagger, sendo uma forma de documentação muito conhecida, 
+além de fornecer interface para teste real da API.
