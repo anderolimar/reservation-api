@@ -1,7 +1,7 @@
 class ResponseList {
-    constructor(total) {
-        this.total = total
-    }
+  constructor (total) {
+    this.total = total
+  }
 }
 
 module.exports = ResponseList

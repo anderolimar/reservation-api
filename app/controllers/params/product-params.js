@@ -1,4 +1,4 @@
-//const PaginationParams = require('./pagination-params')
+// const PaginationParams = require('./pagination-params')
 
 class NewProductParams {
   constructor ({ clientId, name, description, active, reference, apiKey } = {}) {

@@ -39,12 +39,8 @@
   "standard": {
     "globals": [
       "describe",
-      "before",
-      "after",
-      "beforeEach",
-      "afterEach",
       "it",
-      "assert"
+      "should"
     ]
   }
 }

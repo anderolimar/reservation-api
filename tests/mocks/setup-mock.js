@@ -1,9 +1,7 @@
 
-const ClientsRepository = require('../../app/repositories/clients-repository')
-
 const logger = {
-    info: () => {},
-    error: (err) => { console.error(err); }
+  info: () => {},
+  error: (err) => { console.error(err) }
 }
 
 class SetupMock {
@@ -16,7 +14,7 @@ class SetupMock {
     const resourcesObj = { logger }
     this.repositories.forEach(repository => {
       resourcesObj[`${repository.name}`] = new repository.type(this.dbClient, logger)
-    });
+    })
     return resourcesObj
   }
 }

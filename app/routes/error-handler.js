@@ -6,8 +6,8 @@ function notFoundHandler (_req, res, _next) {
 }
 
 function internalErrorHandler (err, _req, res, _next) {
-  if(err instanceof ApiException) {
-    return res.status(err.code).json(err.content)
+  if (err instanceof ApiException) {
+    return res.status(err.status).json(err.content)
   }
 
   logger.error(err)
