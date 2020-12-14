@@ -139,6 +139,13 @@ Documentação online da Reservation API [aqui](https://anderolimar.github.io/do
 Documentação da API em swagger [http://localhost:3000/docs](http://localhost:3000/docs).
 * *necessário que a api estaja rodando [localmente](#iniciar-api-localmente)* 
 
+<br>
+
+## Issues
+
+[Débito Técnico : Cadastro de Produtos](https://github.com/anderolimar/reservation-api/issues/1)
+
+<br>
 
 ## Autor
 
