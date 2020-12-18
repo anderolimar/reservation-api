@@ -22,7 +22,8 @@ const handler = {
 
 class AuthClientBusiness extends BaseBusiness {
   /**
-  * AuthClientBusiness
+  * @constructor
+  * Validate client access in methods with sufix "WithAuth"
   * @param  {import('../logger')} logger
   * @param  {import('../repositories/clients-repository')} clientRepository
   */
@@ -38,13 +39,12 @@ class AuthClientBusiness extends BaseBusiness {
   * @param  {number} params.clientId
   */
   async validateClientAccess (params) {
-    console.log('##############', this)
     if (this.clientRepository) {
       const client = await this.clientRepository.getClient({ id: params.clientId })
       ClientsValidations.validateClientAccess(client, params.apiKey)
       return
     }
-    throw Error('BaseBusiness.clientRepositoryis null')
+    throw Error('BaseBusiness.clientRepository is null')
   }
 }
 

@@ -16,10 +16,10 @@ class ProductsBusiness extends AuthClientBusiness {
   }
 
   /**
-    * @method newProduct
+    * @method newProductWithAuth
     * Returns new Product
     * @param  {import('../controllers/params/product-params').NewProductParams} params
-    * @returns {import('../models/database/product')}
+    * @returns {import('../models/database/product')} 
     */
   async newProductWithAuth (params) {
     try {

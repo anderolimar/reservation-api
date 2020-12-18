@@ -11,7 +11,7 @@ describe('POST /clients/:id/products', function () {
     ]
     const client = { id: 1, apiKey: 'HDSHDJSH' }
 
-    const expectedResult = { id: 1, name: 'Product 1', active: true, description: 'Some Product', reference: 'PRD01' }
+    const expectedResult = { id: 1, title: 'Product 1', active: true, description: 'Some Product', reference: 'PRD01' }
 
     const dbResultFunc = async (query, _trans) => {
       const queryStr = query.toString()
@@ -30,7 +30,7 @@ describe('POST /clients/:id/products', function () {
       .post(`/clients/${client.id}/products`)
       .set('Accept', 'application/json')
       .set('api-key', client.apiKey)
-      .send({ name: 'test', active: true })
+      .send({ title: 'test', active: true })
       .expect(200)
       .expect('Content-Type', /json/)
       .then(response => {
