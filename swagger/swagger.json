@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is the resevation API",
+    "description": " Api para registro de reservas em geral.  <br> <br> Essa aplicação tem como finalidade o registro de reservar de qualquer natureza, suportando multiplos clientes e produtos de reserva. <br> <br> Para cada cliente é gerado uma APIKEY, ao qual é necessária para qualquer interação com a aplicação. <br> <br> As reservas podem ser registradas com data de finalização e status atual da reserva. <br> <br> Também é possível registrar um histórico referente as interação da reserva.",
     "version": "0.1.0",
     "title": "Reservation API",
     "contact": {
@@ -152,7 +152,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -197,11 +197,11 @@
       }
     },
     "/clients/{clientId}/products/{id}": {
-      "post": {
+      "put": {
         "tags": [
           "Products"
         ],
-        "summary": "Create new product.",
+        "summary": "Update product.",
         "description": "",
         "operationId": "putProduct",
         "consumes": [
@@ -212,7 +212,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -278,7 +278,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -327,7 +327,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -387,7 +387,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -442,7 +442,7 @@
         ],
         "parameters": [
           {
-            "name": "api_key",
+            "name": "api-key",
             "in": "header",
             "required": true,
             "type": "string",
@@ -555,7 +555,7 @@
         "clientId": {
           "type": "integer"
         },
-        "name": {
+        "title": {
           "type": "string"
         },
         "active": {
@@ -572,7 +572,7 @@
     "ProductRequest": {
       "type": "object",
       "properties": {
-        "name": {
+        "title": {
           "type": "string"
         },
         "active": {

@@ -14,7 +14,8 @@ class ClientsValidations {
 
   static validateClientAccess (client, apiKey) {
     this.validateExistingClient(client)
-    if (!client.apiKey === apiKey) throw new UnauthorizedException()
+    console.log('####################', { apiKey, client })
+    if (client.apiKey !== apiKey) throw new UnauthorizedException()
   }
 }
 

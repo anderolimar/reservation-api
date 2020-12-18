@@ -101,13 +101,12 @@ describe('AdminController', () => {
 
       let result = null
 
-      const nextResult = function(error) {
+      const nextResult = function (error) {
         result = error
       }
 
       await AdminController.createClient(req, res, nextResult)
       should(result).equal(expectedResult)
-
     })
   })
 })

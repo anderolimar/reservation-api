@@ -2,10 +2,10 @@ const BaseRepository = require('./base-repository')
 const Product = require('../models/database/product')
 const DataBaseException = require('../models/exceptions/database-exception')
 
-const ProductsTable = 'PRODUCTS'
+const ProductsTable = 'RESERVATION_PRODUCTS'
 const ProductsIdColumn = 'ID'
 const ProductsIdClientColumn = 'ID_CLIENT'
-const ProductsNameColumn = 'NAME'
+const ProductsTitleColumn = 'TITLE'
 const ProductsActiveColumn = 'ACTIVE'
 const ProductsDescriptionColumn = 'DESCRIPTION'
 const ProductsReferenceColumn = 'REFERENCE'
@@ -22,7 +22,7 @@ class ProductsRepository extends BaseRepository {
         .first([
                 `${ProductsIdColumn} as id`,
                 `${ProductsIdClientColumn} as clientId`,
-                `${ProductsNameColumn} as name`,
+                `${ProductsTitleColumn} as title`,
                 `${ProductsActiveColumn} as active`,
                 `${ProductsDescriptionColumn} as description`,
                 `${ProductsReferenceColumn} as reference`
@@ -42,18 +42,18 @@ class ProductsRepository extends BaseRepository {
     * @method insertProduct
     * @param {object} args
     * @param {string} args.name
-    * @param {int} args.clientId
+    * @param {number} args.clientId
     * @param {boolean} args.active
     * @param {string} args.description
     * @param {string} args.reference
-    * @returns {int}
+    * @returns {number}
     */
-  async insertProduct ({ clientId, name, active, description, reference } = {}) {
+  async insertProduct ({ clientId, title, active, description, reference } = {}) {
     try {
       const query = this.queryBuilder
         .insert({
           [`${ProductsIdClientColumn}`]: clientId,
-          [`${ProductsNameColumn}`]: name,
+          [`${ProductsTitleColumn}`]: title,
           [`${ProductsActiveColumn}`]: active,
           [`${ProductsDescriptionColumn}`]: description,
           [`${ProductsReferenceColumn}`]: reference

@@ -1,7 +1,7 @@
-const BaseBusiness = require('./base-business')
+const AuthClientBusiness = require('./auth-client-business')
 const ProductsValidations = require('./validations/products-validations')
 
-class ProductsBusiness extends BaseBusiness {
+class ProductsBusiness extends AuthClientBusiness {
   /**
      * Creates an instance of ProductsBusiness.
      *
@@ -11,9 +11,8 @@ class ProductsBusiness extends BaseBusiness {
     * @param  {import('../logger')} logger
     */
   constructor (repository, clientRepository, logger) {
-    super(logger)
+    super(logger, clientRepository)
     this.repository = repository
-    this.clientRepository = clientRepository
   }
 
   /**
@@ -22,10 +21,9 @@ class ProductsBusiness extends BaseBusiness {
     * @param  {import('../controllers/params/product-params').NewProductParams} params
     * @returns {import('../models/database/product')}
     */
-  async newProduct (params) {
+  async newProductWithAuth (params) {
     try {
       ProductsValidations.validateNewProduct(params)
-      await this.validateClientAccess(this.clientRepository, params)
 
       const id = await this.repository.insertProduct(params)
       return this.repository.getProduct({ id })

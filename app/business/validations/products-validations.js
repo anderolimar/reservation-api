@@ -2,7 +2,7 @@ const { RequiredValueException } = require('../../models/exceptions/validation-e
 
 class ProductsValidations {
   static validateNewProduct (param) {
-    const requieredProps = ['clientId', 'name', 'apiKey']
+    const requieredProps = ['clientId', 'title', 'apiKey']
     const missing = requieredProps.reduce((miss, prop) => {
       if (!param[prop]) miss.push(prop)
       return miss

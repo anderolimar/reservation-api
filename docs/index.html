@@ -755,7 +755,7 @@ margin-bottom: 20px;
     "clientId" : {
       "type" : "integer"
     },
-    "name" : {
+    "title" : {
       "type" : "string"
     },
     "active" : {
@@ -772,7 +772,7 @@ margin-bottom: 20px;
         defs["ProductRequest"] = {
   "type" : "object",
   "properties" : {
-    "name" : {
+    "title" : {
       "type" : "string"
     },
     "active" : {
@@ -2089,7 +2089,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 
@@ -2250,7 +2250,7 @@ $(document).ready(function() {
                       <article id="api-Products-putProduct-0" data-group="User" data-name="putProduct" data-version="0">
                         <div class="pull-left">
                           <h1>putProduct</h1>
-                          <p>Create new product.</p>
+                          <p>Update product.</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -2258,7 +2258,7 @@ $(document).ready(function() {
                         <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/clients/{clientId}/products/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/clients/{clientId}/products/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2278,7 +2278,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Products-putProduct-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST -H "api-key: [[apiKey]]" "http://localhost/clients/{clientId}/products/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT -H "api-key: [[apiKey]]" "http://localhost/clients/{clientId}/products/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Products-putProduct-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2356,7 +2356,7 @@ ProductRequest *product = ; // Product data.
 
 ProductsApi *apiInstance = [[ProductsApi alloc] init];
 
-// Create new product.
+// Update product.
 [apiInstance putProductWith:apiKey
     clientId:clientId
     id:id
@@ -2434,7 +2434,7 @@ namespace Example
 
             try
             {
-                // Create new product.
+                // Update product.
                 Product result = apiInstance.putProduct(apiKey, clientId, id, product);
                 Debug.WriteLine(result);
             }
@@ -2517,7 +2517,7 @@ id = 56 # Integer |
 product =  # ProductRequest | Product data.
 
 try: 
-    # Create new product.
+    # Update product.
     api_response = api_instance.put_product(apiKey, clientId, id, product)
     pprint(api_response)
 except ApiException as e:
@@ -2581,7 +2581,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 
@@ -3066,7 +3066,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 
@@ -3476,7 +3476,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 
@@ -3896,7 +3896,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 
@@ -4388,7 +4388,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                  <tr><td style="width:150px;">api_key*</td>
+                                  <tr><td style="width:150px;">api-key*</td>
 <td>
 
 

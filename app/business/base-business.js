@@ -1,5 +1,3 @@
-const ClientsValidations = require('./validations/clients-validations')
-
 class BaseBusiness {
   /**
     * BaseBusiness
@@ -7,11 +5,6 @@ class BaseBusiness {
     */
   constructor (logger) {
     this.logger = logger
-  }
-
-  async validateClientAccess (clientRepository, params) {
-    const client = await clientRepository.getClient({ id: params.clientId })
-    ClientsValidations.validateClientAccess(client, params.apiKey)
   }
 }
 

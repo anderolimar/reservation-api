@@ -1,9 +1,9 @@
 // const PaginationParams = require('./pagination-params')
 
 class NewProductParams {
-  constructor ({ clientId, name, description, active, reference, apiKey } = {}) {
+  constructor ({ clientId, title, description, active, reference, apiKey } = {}) {
     this.clientId = clientId || null
-    this.name = name || null
+    this.title = title || null
     this.description = description || null
     this.active = active || null
     this.reference = reference || null

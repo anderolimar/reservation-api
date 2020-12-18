@@ -13,7 +13,7 @@ class ProductsController {
       const { productsRepository, clientsRepository, logger } = req.resources
       const productsBusiness = new ProductsBusiness(productsRepository, clientsRepository, logger)
       const params = new NewProductParams({ ...req.body, ...req.params, apiKey: req.headers['api-key'] })
-      const result = await productsBusiness.newProduct(params)
+      const result = await productsBusiness.newProductWithAuth(params)
 
       res.json(result)
     } catch (error) {

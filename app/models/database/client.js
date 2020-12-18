@@ -1,5 +1,5 @@
 class Client {
-  constructor (args) {
+  constructor (args = {}) {
     this.id = args.id
     this.name = args.name
     this.active = args.active
