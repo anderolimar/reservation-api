@@ -1,8 +1,14 @@
 
+<p align="center">
+  <img src="./docs/logo.png" />
+</p>
 
 # Reservation API
 
-<center><img src="./docs/logo.png" /></center>
+<p align="center">
+  <a href="https://github.com/anderolimar/reservation-api/actions?query=workflow%3Anodejs-ci"><img alt="Reservation API unit tests status" src="https://github.com/anderolimar/reservation-api/workflows/nodejs-ci/badge.svg"></a>
+</p>
+
 
 Api para registro de reservas em geral. 
 
