@@ -23,7 +23,10 @@ const handler = {
 class AuthClientBusiness extends BaseBusiness {
   /**
   * @constructor
-  * Validate client access in methods with sufix "WithAuth"
+  * Validates client access in methods with suffix "WithAuth"
+  * - The method must take only one object as a parameter
+  * - The method parameter must have the client's "clientId" and "apiKey" values
+  * - The method must be async
   * @param  {import('../logger')} logger
   * @param  {import('../repositories/clients-repository')} clientRepository
   */
