@@ -1,11 +1,18 @@
+const BaseValidations = require('./base-validations')
 const { RequiredValueException } = require('../../models/exceptions/validation-exception')
 const {
   ClientNotFoundException, UnauthorizedException
 } = require('../../models/exceptions/client-exceptions')
 
 class ClientsValidations {
-  static validateNewClient (param) {
-    if (!param.name) throw new RequiredValueException('name')
+  static validateNewClient (params) {
+    const requieredProps = ['name']
+    BaseValidations.validateMissingValues(requieredProps, params)
+  }
+  
+  static validateAuthClient (params) {
+    const requieredProps = ['clientId', 'apiKey']
+    BaseValidations.validateMissingValues(requieredProps, params)
   }
 
   static validateExistingClient (client) {
@@ -14,7 +21,6 @@ class ClientsValidations {
 
   static validateClientAccess (client, apiKey) {
     this.validateExistingClient(client)
-    console.log('####################', { apiKey, client })
     if (client.apiKey !== apiKey) throw new UnauthorizedException()
   }
 }

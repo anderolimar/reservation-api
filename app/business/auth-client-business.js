@@ -43,6 +43,7 @@ class AuthClientBusiness extends BaseBusiness {
   */
   async validateClientAccess (params) {
     if (this.clientRepository) {
+      ClientsValidations.validateAuthClient(params)
       const client = await this.clientRepository.getClient({ id: params.clientId })
       ClientsValidations.validateClientAccess(client, params.apiKey)
       return
